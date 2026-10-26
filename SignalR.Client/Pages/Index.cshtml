@@ -1,10 +1,30 @@
 ﻿@page
-@model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Pedidos en vivo";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Pedidos en vivo</h1>
+
+<div>
+    <label for="orderInput">Número de pedido</label>
+    <input id="orderInput" maxlength="40" />
 </div>
+
+<div>
+    <label for="statusSelect">Estado</label>
+    <select id="statusSelect">
+        <option value="Pendiente">Pendiente</option>
+        <option value="EnPreparacion">En preparación</option>
+        <option value="Enviado">Enviado</option>
+        <option value="Entregado">Entregado</option>
+    </select>
+</div>
+
+<button id="updateButton" disabled>Actualizar estado</button>
+
+<p id="status">Conectando...</p>
+
+<ul id="ordersList"></ul>
+
+<script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/js/orders.js"></script>
